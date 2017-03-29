@@ -15,9 +15,21 @@ using namespace std;
 #define MotorPin2 22;
 #define RelayPin 23;
 
+extern "C" {
+  void asmprogram();
+}
+
 void ultraInit(void)  {
   pinMode(EchoPin, INPUT);
   pinMode(TrigPin, OUTPUT);
+}
+
+void motorsOn(void) {
+  digitalWrite(MotorPin1, HIGH);
+  digitalWrite(MotorPin2, HIGH);
+  delay(3000);
+  digitalWrite(MotorPin1, LOW);
+  digitalWrite(MotorPin2, LOW);
 }
 
 float disMeasure(void)  {
@@ -100,6 +112,8 @@ int main(void) {
   pinMode(MotorPin2, OUTPUT);
 
   digitalWrite(RelayPin, HIGH);
+
+  //asmprogram();
 
   while(1)  {
     if(searchLeft()) {
