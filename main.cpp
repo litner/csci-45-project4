@@ -8,9 +8,16 @@
 
 using namespace std;
 
+#define EchoPin 20;
+#define TrigPin 18;
+#define SERVOPIN 26;
+#define MotorPin1 19;
+#define MotorPin2 22;
+#define RelayPin 23;
+
 void ultraInit(void)  {
-  pinMode(Echo, INPUT);
-  pinMode(Trig, OUTPUT);
+  pinMode(EchoPin, INPUT);
+  pinMode(TrigPin, OUTPUT);
 }
 
 float disMeasure(void)  {
@@ -20,16 +27,16 @@ float disMeasure(void)  {
   long time1, time2;
   float dis;
 
-  digitalWrite(Trig, LOW);
+  digitalWrite(TrigPin, LOW);
   delayMicroseconds(2);
 
-  digitalWrite(Trig, HIGH);
+  digitalWrite(TrigPin, HIGH);
   delayMicroseconds(10); //send out ultrasonic pulses
 
-  while(!(digitalRead(Echo) == 1));
+  while(!(digitalRead(EchoPin) == 1));
   gettimeofday(&tv1, NULL); //get current time
 
-  while(!(digitalRead(Echo) == 0));
+  while(!(digitalRead(EchoPin) == 0));
   gettimeofday(&tv2, NULL); //get current time
 
   time1 = tv1.tv_sec * 1000000 + tv1.tv_usec; //microsecond time
@@ -61,7 +68,7 @@ return LOW;
 
 int searchRight(void) {
 
-  for (int i = 0; i >= 18; i--) {
+  for (int i = 18; i >= 0; i--) {
 
     softPwmWrite(SERVOPIN, i);
 
@@ -88,6 +95,11 @@ int main(void) {
   float dis;
   ultraInit();
   softPwmCreate(pin, 0, 100);
+  pinMode(RelayPin, OUTPUT);
+  pinMode(MotorPin1, OUTPUT);
+  pinMode(MotorPin2, OUTPUT);
+
+  digitalWrite(RelayPin, HIGH);
 
   while(1)  {
     if(searchLeft()) {
@@ -110,7 +122,7 @@ int main(void) {
     digitalWrite(MotorPin2, LOW);
   }
 
-
+  digitalWrite(RelayPin, LOW);
 
   return 0;
 }
