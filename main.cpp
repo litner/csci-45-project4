@@ -70,7 +70,7 @@ int searchLeft(void)  {
     cout << dis << endl;
     
     if (dis <= 3)
-      return HIGH;
+      return TRUE;
 
     delay(200);
 
@@ -89,7 +89,7 @@ int searchRight(void) {
     float dis = disMeasure();
 
     if (dis <= 3)
-      return HIGH;
+      return TRUE;
 
     delay(200);
 
@@ -112,21 +112,26 @@ int main(void) {
   pinMode(RelayPin, OUTPUT);
   pinMode(MotorPin1, OUTPUT);
   pinMode(MotorPin2, OUTPUT);
-
   digitalWrite(RelayPin, HIGH);
+  bool x;
 
   //asmprogram();
 
   while(1)  {
-    if(searchLeft()==HIGH) {
+    
+    x = searchLeft();
+    
+    if(x==HIGH) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
     }
 
     delay(200);
+    
+    x = searchRight();
 
-    if(searchRight()==HIGH) {
+    if(x==HIGH) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
