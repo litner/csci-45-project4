@@ -21,6 +21,12 @@ while rotating back and forth with a servo</p>
 Ultrasound Sensor
 
 ### Pins ###
+EchoPin 12
+TrigPin 16
+SERVOPIN 26
+MotorPin1 5
+MotorPin2 6
+RelayPin 13
 
 ## Responsibilities ##
 Joses Paras - coding
