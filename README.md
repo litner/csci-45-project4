@@ -20,6 +20,10 @@ while rotating back and forth with a servo</p>
 ## Sensors ##
 Ultrasound Sensor
 
+## Moving Parts ##
+1 servo <br />
+2 motors
+
 ### Pins ###
 EchoPin 12
 TrigPin 16
