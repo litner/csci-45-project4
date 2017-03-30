@@ -119,9 +119,11 @@ int main(void) {
 
   while(1)  {
     
+    cout << "test" << endl;
+    
     x = searchLeft();
     
-    if(x==HIGH) {
+    if(x==1) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
@@ -131,7 +133,7 @@ int main(void) {
     
     x = searchRight();
 
-    if(x==HIGH) {
+    if(x==1) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
