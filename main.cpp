@@ -116,7 +116,7 @@ int main(void) {
   //asmprogram();
 
   while(1)  {
-    if(searchLeft()) {
+    if(searchLeft()==HIGH) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
@@ -124,7 +124,7 @@ int main(void) {
 
     delay(200);
 
-    if(searchRight()) {
+    if(searchRight()==HIGH) {
       digitalWrite(MotorPin1, HIGH);
       digitalWrite(MotorPin2, HIGH);
       delay(3000);
