@@ -8,12 +8,12 @@
 
 using namespace std;
 
-#define EchoPin 20;
-#define TrigPin 18;
+#define EchoPin 12;
+#define TrigPin 16;
 #define SERVOPIN 26;
-#define MotorPin1 19;
-#define MotorPin2 22;
-#define RelayPin 23;
+#define MotorPin1 5;
+#define MotorPin2 6;
+#define RelayPin 13;
 
 extern "C" {
   void asmprogram();
