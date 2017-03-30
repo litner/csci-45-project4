@@ -106,7 +106,7 @@ int main(void) {
 
   float dis;
   ultraInit();
-  softPwmCreate(pin, 0, 100);
+  softPwmCreate(SERVOPIN, 0, 100);
   pinMode(RelayPin, OUTPUT);
   pinMode(MotorPin1, OUTPUT);
   pinMode(MotorPin2, OUTPUT);
