@@ -67,6 +67,8 @@ int searchLeft(void)  {
 
     float dis = disMeasure();
 
+    cout << dis << endl;
+    
     if (dis <= 3)
       return HIGH;
 
