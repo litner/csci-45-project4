@@ -98,12 +98,12 @@ int searchRight(void) {
 }
 
 int main(void) {
-
+/*
   if(wiringPiSetupGpio() < 0) {
     fprintf(stderr, "Unable to setup wiringPi:%s\n", strerror(errno));
     return 1;
   }
-
+*/
   float dis;
   ultraInit();
   softPwmCreate(SERVOPIN, 0, 100);
